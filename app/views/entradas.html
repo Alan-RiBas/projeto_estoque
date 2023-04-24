@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid bg-secondary  ">
+    <h2>Entrada de materiais</h2>
+    {% if message %}
+        <div class="alert alert-{{message['alert']}}" role="alert">
+        {{message['message']}}
+        </div>
+    {% endif %}
+    <form action="/entrada" method="POST">
+
+        <table class="col-12 p-5 bg-light rounded">
+            <tr class="list-group list-group-horizontal justify-content-evenly p-1 w-100">
+                <td class="col-2 list-group-item bg-success text-light m-auto">Código Produto</td>
+                <td class="col-2 list-group-item bg-success text-light m-auto">Data da entrada</td>
+                <td class="col-2 list-group-item bg-success text-light m-auto">Quantidade</td>
+                <td class="col-2 list-group-item bg-success text-light m-auto">Endereço</td>
+                <td class="col-2 list-group-item bg-success text-light m-auto">Movimentação</td>
+                <td class="col-2 list-group-item bg-success text-light m-auto">Descrição</td>
+            </tr>          
+            <tr class=" list-group list-group-horizontal d-flex justify-content-evenly w-100">
+                <td class="col-2 list-group-item m-auto border-1 "><input type="text" name="codigoProduto" placeholder="Código do Produto" class="w-100"></td>
+                <td class="col-2 list-group-item m-auto border-1 "><input type="text" name="dataDeEntrada" placeholder="Data" class="w-100"></td>
+                <td class="col-2 list-group-item m-auto border-1 "><input type="text" name="quantidade" placeholder="Quantidade" class="w-100"></td>
+                <td class="col-2 list-group-item m-auto border-1 "><input type="text" name="endereco"  placeholder="Endereço" class="w-100"></td>
+                <td class="col-2 list-group-item m-auto border-1 "><select class="list-group-item w-100" name="movimentacao" id=""><option class="list-group-item w-100" value="entrada">Entrada</option><option class="list-group-item w-100" value="saida">Saída</option></select></td>
+                <td class="col-2 list-group-item m-auto border-1 "><input type="text" name="descricao"  placeholder="Descrição" class="w-100"></td>
+            </tr>
+            <tr class=" list-group-horizontal col-12  p-1 w-100">
+                <td class="list-group-item col-10 m-auto border-1 d-flex justify-content-end p-2"><button type="submit" class="btn btn-primary">Adicionar item</button></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+{% endblock %}   

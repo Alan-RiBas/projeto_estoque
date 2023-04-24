@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content w-80 bg-secondary  ">
+    <h1>Seja bem vindo ao Estoque</h1>
+    {% if message %}
+        <div class="alert alert-{{message['alert']}}" role="alert">
+        {{message['message']}}
+        </div>
+    {% endif %}
+    <h2>Estoque Atual</h2>
+    <table class="col-12 p-1 bg-light rounded">
+        <tr class="list-group list-group-horizontal justify-content-evenly p-1 w-100">
+            <td class="col-2 list-group-item bg-success text-light m-auto">Código Produto</td>
+            <td class="col-2 list-group-item bg-success text-light m-auto">Data da entrada</td>
+            <td class="col-2 list-group-item bg-success text-light m-auto">Quantidade</td>
+            <td class="col-2 list-group-item bg-success text-light m-auto">Endereço</td>
+            <td class="col-2 list-group-item bg-success text-light m-auto">Movimentação</td>
+            <td class="col-2 list-group-item bg-success text-light m-auto">Descrição</td>
+        </tr>
+        {% for item in itens %}  
+            {% for produto in produtos %}              
+                <tr class="list-group list-group-horizontal d-flex justify-content-evenly p-1">
+                    <td class="col-2 list-group-item m-auto border-1">{{produto[$cont].CodRefProduto}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{item.data}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{item.quantidade}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{enderecos.endereco}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{item.movimentacao}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{produto.NomeProduto}}</td>
+                </tr>      
+            {% endfor %}  
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}

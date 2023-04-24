@@ -1,0 +1,16 @@
+{
+    "require": {
+        "slim/slim": "^4.11",
+        "slim/twig-view": "^3.3",
+        "slim/psr7": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        },
+        "files":[
+          "app/helpers/config.php", 
+          "app/helpers/redirect.php"
+        ]
+    }
+}
