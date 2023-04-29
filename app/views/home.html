@@ -18,18 +18,21 @@
             <td class="col-2 list-group-item bg-success text-light m-auto">Movimentação</td>
             <td class="col-2 list-group-item bg-success text-light m-auto">Descrição</td>
         </tr>
-        {% for item in itens %}  
-            {% for produto in produtos %}              
+
+
+
+
+            {% for item in itens %}
                 <tr class="list-group list-group-horizontal d-flex justify-content-evenly p-1">
-                    <td class="col-2 list-group-item m-auto border-1">{{produto[$cont].CodRefProduto}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{item.produto.CodRefProduto}}</td>
                     <td class="col-2 list-group-item m-auto border-1">{{item.data}}</td>
                     <td class="col-2 list-group-item m-auto border-1">{{item.quantidade}}</td>
-                    <td class="col-2 list-group-item m-auto border-1">{{enderecos.endereco}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{item.end.endereco}}</td>
                     <td class="col-2 list-group-item m-auto border-1">{{item.movimentacao}}</td>
-                    <td class="col-2 list-group-item m-auto border-1">{{produto.NomeProduto}}</td>
+                    <td class="col-2 list-group-item m-auto border-1">{{item.produto.NomeProduto}}</td>
                 </tr>      
-            {% endfor %}  
-        {% endfor %}
+            {% endfor %}
+
     </table>
 
 </div>

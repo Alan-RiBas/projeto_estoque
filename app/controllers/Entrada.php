@@ -39,7 +39,7 @@ class Entrada extends Base{
                    'data' => $_POST['dataDeEntrada'],
                    'quantidade' => $_POST['quantidade'], 
                    'endereco' => $enderecos->idEndereco,
-                   'movimentacao' => $_POST['movimentacao']
+                   'movimentacao' => 'entrada'
                ]);
            }else{
                 $estoqueAtual = $this->estoque->findBy('idCodigoProduto', $idCodigo->idProduto);

@@ -22,27 +22,15 @@ class Home extends Base{
     public function index($request, $response){
 
         $itens = $this->estoque->find();
-        foreach($itens as $item ){
-            
-            $produtos = $this->produto->findBy('idProduto',$item->idCodigoProduto, true);
-            $enderecos = $this->endereco->findBy('idEndereco', $item->endereco);
-            
-            // $slot = [
-            //     "codProduto" => "{$produtos->CodRefProduto}",
-            //     "data" => "{$item->data}",
-            //     "quantidade" => "{$item->quantidade}",
-            //     "endereco" => "{$produtos->fornecedor}",
-            //     "descricao" => "{$produto->NomeProduto}"
 
-            // ];
+        foreach($itens as $item ){
+            $item->produto = $this->produto->findBy('idProduto',$item->idCodigoProduto);
+            $item->end = $this->endereco->findBy('idEndereco', $item->endereco);
         }
+
         return $this->getTwig()->render($response, $this->setView('home'),[
             'title' => 'Home',
-            'enderecos' => $enderecos,
-            'produtos' => $produtos,
             'itens' => $itens,
         ]);
     }
-
-    
 }

@@ -41,7 +41,7 @@ class Saida extends Base{
                 $value = (int) $_POST['quantidade'];
                 $this->estoque->update(['fields'=>[
                     
-                    'movimentacao' => $_POST['movimentacao'],
+                    'movimentacao' => 'saida',
                     'quantidade' => ($estoqueAtual->quantidade -= $value) 
                     ],'where'=>['idCodigoProduto' => $idCodigo->idProduto]
                 ]);
